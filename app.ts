@@ -3,7 +3,7 @@ const num2Element = document.getElementById('num2') as HTMLInputElement;
 const resultElement = document.getElementById('result') as HTMLSpanElement;
 const buttonElement = document.querySelector('button') as HTMLButtonElement;
 
-const numResults: number[] = [];
+const numResults: Array<number> = [];
 const textResults: string[] = [];
 
 // union type optimization code
@@ -41,3 +41,13 @@ buttonElement.addEventListener('click', () => {
     console.log(numResults, textResults)
     resultElement.textContent = result.toString();  
 });
+
+const myPromise = new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+        resolve('it worked!');
+    }, 1000);
+});
+
+myPromise.then((result) => {
+    console.log(result.split('w'));
+})
